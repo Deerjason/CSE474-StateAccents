@@ -1,7 +1,13 @@
+import os
 from pyAudioAnalysis import audioTrainTest as aT
 
-# Replace "testing.wav" with the path of the testing .wav file
-Result, P, classNames = aT.file_classification("testing.wav", "model", "randomforest")
+# The .wav file to be tested should be placed in the "test" directory as such:
+# > test
+#   Arizona.wav
+data = [wav for wav in os.listdir("test")]
+
+# Classifies .wav file using existing randomforest model
+Result, P, classNames = aT.file_classification(data[0], "model", "randomforest")
 
 # Prints all states with a probability >= 0.2
 states = []
