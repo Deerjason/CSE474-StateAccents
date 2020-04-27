@@ -12,6 +12,7 @@
            Connecticut 1.wav
 """
 
+
 import os
 import shutil
 import glob
@@ -38,7 +39,7 @@ for region in regions:
                 shutil.move(source, destination)    
             except Exception:
                 pass
-            
+          
             
 # Gets list of directories to be trained on
 dirs = [f.path for f in os.scandir(pathtemp) if f.is_dir()]
@@ -46,7 +47,7 @@ dirs = [f.path for f in os.scandir(pathtemp) if f.is_dir()]
 print(dirs)
 
 # Trains model using randomforest
-aT.extract_features_and_train(dirs, 1.0, 1.0, 0.1, 0.1, "randomforest", "model", False)
+aT.extract_features_and_train(dirs, 2.0, 0.2, 0.50, 0.25, "randomforest", "model", False)
 
 # Moves all files back to original directory
 
